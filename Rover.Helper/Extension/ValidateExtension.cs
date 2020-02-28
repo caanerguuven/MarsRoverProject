@@ -49,25 +49,32 @@ namespace Rover.Helper.Extension
         public static string HasContainsOrientationLetters(this string value)
         {
             var collection = new List<char>() { 'n', 's', 'w', 'e' };
-            HasContainsLetters(value, collection);
+            HasContainsLettersWithLengthControl(value, collection);
             return value;
         }
 
         public static string HasContainsApproveLetters(this string value)
         {
             var collection = new List<char>() { 'y', 'n' };
-            HasContainsLetters(value, collection);
+            HasContainsLettersWithLengthControl(value, collection);
             return value;
         }
 
-        public static string HasContainsLetters(string value, List<char> items)
+        public static string HasContainsLettersWithLengthControl(string value, List<char> items)
         {
             string valueUpdated = value.Trim().ToLower();
             if (valueUpdated.Length > 1)
             {
                 throw new Exception("wrong value detected !");
             }
-            bool isNotContain = !items.Any(item => valueUpdated.Contains((char)item));
+            HasContainsLetters(valueUpdated, items);
+
+            return value;
+        }
+
+        public static string HasContainsLetters(string value, List<char> items)
+        {
+            bool isNotContain = !items.Any(item => value.Contains((char)item));
             if (isNotContain)
             {
                 throw new Exception("invalid value detected !");

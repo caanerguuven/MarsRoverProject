@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Rover.Business
 {
-    public class RoverMovementProcess : Process
+    public class RoverAddNewProcess : Process
     {
-        private readonly string ConsoleSentences = "Please Type Rover Movements : ";
+        private readonly string ConsoleSentences = "Could you add new rover ? (y/n) ";
         public override void Run(ProcessModel processModel)
         {
             bool isValidate;
@@ -21,20 +21,20 @@ namespace Rover.Business
                 isValidate = Validate();
                 if (!isValidate)
                 {
-                    Console.WriteLine("An Error Occured !");
                     break;
                 }
 
-                RoverMovementModel model = new RoverMovementModel()
-                {
-                    MovementLetters = EnterValue
-                };
-
-                processModel.CurrentRover.RoverMovementModel = model;
+                processModel.RoverModels.Enqueue(processModel.CurrentRover);
+                processModel.CurrentRover = null;
 
                 if (NextProcess != null)
                 {
-                    NextProcess.Run(processModel);
+                    if (EnterValue == "Y")
+                    {
+                        processModel.RoverIndex += 1;
+                        NextProcess.SetNextProcess(new RoverLocationProcess());
+                        NextProcess.Run(processModel);
+                    }
                 }
 
             } while (isValidate);
@@ -44,7 +44,7 @@ namespace Rover.Business
         {
             try
             {
-                EnterValue.IsAllInfosEntered(3).HasContainsDirectionLetters();
+                EnterValue.IsAllInfosEntered(1).HasContainsApproveLetters();
             }
             catch (Exception ex)
             {

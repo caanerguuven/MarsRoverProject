@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Rover.Model\Rover.Model.csproj" />
+    <ProjectReference Include="..\Rover.Business\Rover.Business.csproj" />
   </ItemGroup>
 
 </Project>
