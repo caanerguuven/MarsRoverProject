@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Rover.Model.Abstract
+namespace Rover.Model.Process.Abstract
 {
     public interface IProcessModel
     {

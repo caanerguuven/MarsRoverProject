@@ -1,9 +1,7 @@
-﻿using Rover.Model.Abstract;
-using System;
+﻿using Rover.Model.Process.Abstract;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Rover.Model
+namespace Rover.Model.Process
 {
     public class ProcessModel:IProcessModel
     {

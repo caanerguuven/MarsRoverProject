@@ -9,5 +9,7 @@ namespace Rover.Model
         public int Apsis { get; set; }
         public int Ordinate { get; set; }
         public string Orientation { get; set; }
+        public int MaxApsisLimit { get; set; }
+        public int MaxOrdinateLimit { get; set; }
     }
 }

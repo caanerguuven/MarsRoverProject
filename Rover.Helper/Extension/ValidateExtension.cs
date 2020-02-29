@@ -20,7 +20,7 @@ namespace Rover.Helper.Extension
 
         public static string IsAllInfosNumber(this string value)
         {
-            if (!value.Trim().All(char.IsDigit))
+            if (!value.Replace(" ",string.Empty).Trim().All(char.IsDigit))
             {
                 throw new Exception("not numeric value detected !");
             }

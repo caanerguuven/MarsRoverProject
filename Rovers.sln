@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rovers", "Rovers\Rovers.csproj", "{DB99B0CF-CE62-467F-BC62-7EB1458F2321}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rovers", "Rovers\Rovers.csproj", "{DB99B0CF-CE62-467F-BC62-7EB1458F2321}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rover.Model", "Rover.Model\Rover.Model.csproj", "{F39CD217-171F-4B43-A980-35F86CD0CD1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rover.Model", "Rover.Model\Rover.Model.csproj", "{F39CD217-171F-4B43-A980-35F86CD0CD1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rover.Business", "Rover.Business\Rover.Business.csproj", "{AA702809-012A-4C03-A7A6-2DE762B87F35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rover.Business", "Rover.Business\Rover.Business.csproj", "{AA702809-012A-4C03-A7A6-2DE762B87F35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rover.Helper", "Rover.Helper\Rover.Helper.csproj", "{AACAC054-C712-47EE-9174-F61BF60C606A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rover.Helper", "Rover.Helper\Rover.Helper.csproj", "{AACAC054-C712-47EE-9174-F61BF60C606A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rover.Test", "Rover.Test\Rover.Test.csproj", "{A473F7D2-DD55-4EA5-BB6C-3F61314F49E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{AACAC054-C712-47EE-9174-F61BF60C606A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AACAC054-C712-47EE-9174-F61BF60C606A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AACAC054-C712-47EE-9174-F61BF60C606A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A473F7D2-DD55-4EA5-BB6C-3F61314F49E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A473F7D2-DD55-4EA5-BB6C-3F61314F49E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A473F7D2-DD55-4EA5-BB6C-3F61314F49E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A473F7D2-DD55-4EA5-BB6C-3F61314F49E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

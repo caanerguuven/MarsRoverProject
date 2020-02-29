@@ -1,5 +1,7 @@
-﻿using Rover.Business;
+﻿using Rover.Business.Process;
+using Rover.Business.Trigger;
 using Rover.Model;
+using Rover.Model.Process;
 using System;
 using System.Collections.Generic;
 
@@ -9,25 +11,44 @@ namespace Rovers
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("-----------------------------");
+            Console.WriteLine("Welcome World Of The Rovers !");
+            Console.WriteLine("-----------------------------");
 
-            Start();
+            ProcessModel _model = CreateProcessModel();
+
+            Console.WriteLine("*****************************");
+            Console.WriteLine("Let's start. ");
+
+            RoverDriver _driver = new RoverDriver(_model);
+            List<RoverLocationModel> roverLocations = _driver.Start();
+
+            roverLocations.ForEach(x =>
+            {
+                Console.WriteLine("**********************************");
+                Console.WriteLine($"X :{x.Apsis} Y:{x.Ordinate} Orientation : {x.Orientation}");
+                Console.WriteLine("----------------------------------");
+            });
+            
 
         }
 
-        static void Start()
+        public static ProcessModel CreateProcessModel()
         {
-
-            PlateauProcess plateauProcess = new PlateauProcess();
+            ProcessModel model = new ProcessModel();
+            InitializeProcess initializeProcess = new InitializeProcess();
             RoverLocationProcess roverLocationProcess = new RoverLocationProcess();
             RoverMovementProcess roverMovementProcess = new RoverMovementProcess();
             RoverAddNewProcess addNewProcess = new RoverAddNewProcess();
 
-            plateauProcess.SetNextProcess(roverLocationProcess);
+            initializeProcess.SetNextProcess(roverLocationProcess);
             roverLocationProcess.SetNextProcess(roverMovementProcess);
             roverMovementProcess.SetNextProcess(addNewProcess);
 
-            plateauProcess.Run(new ProcessModel());
+            initializeProcess.Run(model);
+            return model;
         }
+
+
     }
 }
